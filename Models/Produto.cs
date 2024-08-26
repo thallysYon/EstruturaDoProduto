@@ -12,23 +12,46 @@ namespace EstruturaDoProduto.Models
 
         [Display(Name = "Nome do produto")]
         [MaxLength(100)]
-        [Required(ErrorMessage = "Por favor, preencha o campo {0}!")]
-        public string Nome { get; set; }
+        public string? Nome { get; set; }
 
         [Display(Name = "Status do produto")]
         [Required(ErrorMessage = "Por favor, preencha o campo {0}!")]
         public bool Status { get; set; }
 
         [Display(Name = "Código do produto")]
-        [MaxLength(10)]
-        [Required(ErrorMessage = "Por favor, preencha o campo {0}!")]
-        public string Codigo { get; set; }
+        [MaxLength(12)]
+        public string? Codigo { get; set; }
 
+        [Display(Name = "Código do produto pelo fornecedor")]
+        [MaxLength(12)]
+        public string? CodigoProdutoFornecedor { get; set; }
+
+        [Display(Name = "Data de cadastro")]
+        [DataType(DataType.Date)]
+        public DateTime? DataDeCadastro { get; set; }
+
+        [Display(Name = "Custo padrão")]
+        [Column(TypeName = "decimal(8,4)")]
+        [Required(ErrorMessage = "Por favor, preencha o campo {0}!")]
         public decimal CustoPadrao { get; set; }
 
-        public decimal PesoLiquido { get; set; }
+        [Display(Name = "Preço final")]
+        [Column(TypeName = "decimal(8,4)")]
+        [Required(ErrorMessage = "Por favor, preencha o campo {0}!")]
+        public decimal PrecoFinal { get; set; }
 
-        public decimal PropPesoBruto { get; set; }
+        [Display(Name = "Margem de lucro (R$)")]
+        [Column(TypeName = "decimal(8,4)")]
+        [Required(ErrorMessage = "Por favor, preencha o campo {0}!")]
+        public decimal MargemDeLucroEmReais { get; set; }
+
+        [Display(Name = "Peso líquido")]
+        [Column(TypeName = "decimal(8,3)")]
+        public decimal? PesoLiquido { get; set; }
+
+        [Display(Name = "Peso bruto")]
+        [Column(TypeName = "decimal(8,3)")]
+        public decimal? PesoBruto { get; set; }
 
     }
 }
